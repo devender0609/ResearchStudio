@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SpineResearch Studio Pro</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar">
+      <div class="brand"><div class="mark">SR</div><div><h1>SpineResearch Studio</h1><p>Feasibility · statistics · manuscript</p></div></div>
+      <div class="status-card" id="projectStatus">
+        <span class="eyebrow">Project status</span>
+        <strong>Waiting for study intake</strong>
+        <p>Upload data and notes to begin.</p>
+      </div>
+      <nav id="nav" class="nav hidden">
+        <button data-target="feasibility">Feasibility</button>
+        <button data-target="audit">Data audit</button>
+        <button data-target="analysis">Analysis</button>
+        <button data-target="manuscript">Manuscript</button>
+        <button data-target="export">Export</button>
+      </nav>
+      <button id="resetBtn" class="ghost full">Reset workspace</button>
+    </aside>
+
+    <main class="main">
+      <section id="intake" class="panel hero">
+        <div class="hero-copy">
+          <span class="eyebrow">Professional research workflow</span>
+          <h2>Drop your study here. The app will analyze what can actually be done.</h2>
+          <p>Paste a rough note or research question, upload data and supporting files, then generate a data-grounded research workspace. No fake p-values. No invented references.</p>
+        </div>
+        <form id="intakeForm" class="intake-card">
+          <label>Rough study note, question, abstract, or draft</label>
+          <textarea id="note" name="note" rows="8" placeholder="Example: I have AIS patients with MIS/open technique and perioperative glucose values. I want to know whether technique is associated with postoperative glucose response."></textarea>
+          <div class="grid two">
+            <div>
+              <label>Target journal <span>optional</span></label>
+              <select id="journal" name="journal">
+                <option value="">Not sure / leave blank</option>
+                <option>Clinical Spine Surgery</option><option>Spine</option><option>The Spine Journal</option><option>Global Spine Journal</option><option>European Spine Journal</option><option>Journal of Neurosurgery: Spine</option><option>Spine Deformity</option><option>North American Spine Society Journal</option><option>World Neurosurgery</option><option>Neurosurgery</option><option>Other</option>
+              </select>
+            </div>
+            <div>
+              <label>Study design <span>optional</span></label>
+              <select id="studyDesign" name="study_design">
+                <option>Not sure / infer from files</option><option>Retrospective cohort</option><option>Prospective cohort</option><option>Case-control</option><option>Cross-sectional</option><option>Systematic review/meta-analysis</option><option>Prediction model</option><option>Quality improvement</option><option>Randomized trial</option><option>Other</option>
+              </select>
+            </div>
+          </div>
+          <label class="upload" for="files">
+            <input id="files" name="files" type="file" multiple accept=".csv,.xlsx,.xls,.docx,.pdf,.txt,.md,.json,.zip" />
+            <strong>Choose files or drop them here</strong>
+            <span>CSV, Excel, DOCX, PDF, TXT, JSON, ZIP supported</span>
+          </label>
+          <div id="fileList" class="file-list"></div>
+          <button class="primary" type="submit" id="analyzeBtn">Analyze Study</button>
+          <p id="error" class="error"></p>
+        </form>
+      </section>
+
+      <section id="workspace" class="workspace hidden">
+        <section class="panel section" id="feasibility"></section>
+        <section class="panel section" id="audit"></section>
+        <section class="panel section" id="analysis"></section>
+        <section class="panel section" id="manuscript"></section>
+        <section class="panel section" id="export"></section>
+      </section>
+    </main>
+  </div>
+  <script src="/app.js"></script>
+</body>
+</html>
